@@ -7,4 +7,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'StoreAngular';
+  showParagraph = false
+  buttonClicked = []
+
+  hideParagraph()
+  {
+    if(this.showParagraph === true)
+    {
+      this.showParagraph = false
+    }
+    else{
+      this.showParagraph = true
+    }
+
+    this.buttonClicked.push(this.buttonClicked.length + 1)
+  }
 }
