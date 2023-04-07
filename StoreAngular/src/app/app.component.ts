@@ -9,6 +9,7 @@ export class AppComponent {
   title = 'StoreAngular';
   showParagraph = false
   buttonClicked = []
+  serverElements = ['Testserver'];
 
   hideParagraph()
   {
@@ -21,5 +22,14 @@ export class AppComponent {
     }
 
     this.buttonClicked.push(this.buttonClicked.length + 1)
+  }
+
+  onServerAdded(eventData)
+  {
+    this.serverElements.push(
+     eventData.ServerNameInApp
+    );
+    alert("Its working" + eventData.ServerNameInApp);
+    console.log(this.serverElements);
   }
 }

@@ -1,15 +1,16 @@
 <div class="container pad">
 
-    <div>
+    <div  >
         <p><strong>Server Name</strong></p>
         <!-- <input type="text" 
         class="form-control"
         (input)="onUpdateInput($event)"
         > -->
-        <input type="text" class="form-control" [(ngModel)] ="serverName">
+        <!-- <input type="text" class="form-control" [(ngModel)]="serverName"> -->
+        <input type="text" class="form-control" #serverInput>
     </div>
     <div>
-        <button class="btn btn-primary" [disabled]="!enableButton" (click)="onClickButton()">Button</button>
+        <button class="btn btn-primary" [disabled]="!enableButton" (click)="onClickButton(serverInput)">Button</button>
     </div>
     <p *ngIf="serverCreated; else noServerCreated">{{ description }} {{ servers }}</p>
     <ng-template #noServerCreated>
@@ -21,7 +22,7 @@
     [ngClass]="{paragraphColor: userName === 'Maaz Tariq'}"
     *ngFor="let server of servers"
     >
-        User id is {{ userId }} and username is {{ userName }} servers: {{ servers }} </p>
+        User id is {{ userId }} and username is {{ userName }} servers: {{ server }} </p>
         
     <div class="row">
         <div class="col-sm-2">
@@ -32,3 +33,4 @@
         </div>
     </div>
 </div>
+<br>

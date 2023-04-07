@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-servers',
@@ -11,10 +11,12 @@ export class ServersComponent implements OnInit {
   userName : string = "Name";
   enableButton :boolean = false;
   description :string = "";
-  serverName: string = "";
+  serverName: string;
   serverCreated : boolean = false;
   servers : string[] = ['test server', 'test server 2'];
-  
+  @Output() ServerCreatedOnClick = new EventEmitter<{ServerNameInApp:string}>();
+
+  @ViewChild("serverInput", {static:true}) ServerNameInput
 
   constructor() { 
     setTimeout(() => {
@@ -26,11 +28,13 @@ export class ServersComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onClickButton()
+  onClickButton(serverName : HTMLInputElement)
   {
+    console.log()
+    this.ServerCreatedOnClick.emit({ServerNameInApp : serverName.value})
     this.serverCreated = true
-    this.servers.push(this.serverName)
-    this.description = "Server was created with Name:" + this.serverName
+    this.servers.push(serverName.value)
+    this.description = "Server was created with Name:" + this.ServerNameInput.nativeElement.value
     // document.querySelector(".paragraph").innerHTML = "button was clicked"
   }
 

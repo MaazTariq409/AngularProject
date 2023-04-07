@@ -1,4 +1,4 @@
-<app-servers></app-servers>
+
 <br>
 <div class="container">
 <button 
@@ -9,4 +9,11 @@ class="btn btn-primary"
 <p *ngIf="!showParagraph">This is a paragraph</p>
 
 <p *ngFor="let click of buttonClicked" [ngClass]="{buttonColor: click > 4}">{{ click }}</p>
-</div>[]
+</div>
+
+<app-servers (ServerCreatedOnClick)="onServerAdded($event)"></app-servers>
+
+<br>
+
+<p *ngFor ="let server of serverElements">the data is below {{server}}</p>
+
