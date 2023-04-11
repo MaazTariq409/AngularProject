@@ -1,19 +1,19 @@
-
 <br>
 <div class="container">
-<button 
-class="btn btn-primary"
-(click)="hideParagraph()"
->Display Button</button>
+    <button class="btn btn-primary" (click)="hideParagraph()">Display Button</button>
 
-<p *ngIf="!showParagraph">This is a paragraph</p>
+    <!-- structural directives -->
+    <p *ngIf="!showParagraph">This is a paragraph</p>
+    <p *ngFor="let click of buttonClicked" [ngClass]="{buttonColor: click > 4}">{{ click }}</p>
 
-<p *ngFor="let click of buttonClicked" [ngClass]="{buttonColor: click > 4}">{{ click }}</p>
+    <!-- custom event binding from one component to another -->
+    <app-servers (ServerCreatedOnClick)="onServerAdded($event)"></app-servers>
+
+    <br>
+
+    <p *ngFor = "let server of serverElements">the data is Comming from Servers.component: {{server}}</p>
+
+    <br>
+
+    <app-side-bar></app-side-bar>
 </div>
-
-<app-servers (ServerCreatedOnClick)="onServerAdded($event)"></app-servers>
-
-<br>
-
-<p *ngFor ="let server of serverElements">the data is below {{server}}</p>
-

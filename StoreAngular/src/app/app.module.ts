@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { ServersComponent } from './servers/servers.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { FormsModule } from '@angular/forms';
+import { ChangeBackgroundColorDirective } from './CustomDirectives/change-background-color.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     ServersComponent,
-    SideBarComponent
+    SideBarComponent,
+    ChangeBackgroundColorDirective,
   ],
   imports: [
     FormsModule,

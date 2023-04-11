@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, ViewChild, Input } from '@angular/core';
 
 @Component({
   selector: 'app-servers',
@@ -15,6 +15,9 @@ export class ServersComponent implements OnInit {
   serverCreated : boolean = false;
   servers : string[] = ['test server', 'test server 2'];
   @Output() ServerCreatedOnClick = new EventEmitter<{ServerNameInApp:string}>();
+
+  @Input() Element : {type : string, content : string};
+  @Input() element: {type: string, name: string, content: string};
 
   @ViewChild("serverInput", {static:true}) ServerNameInput
 
